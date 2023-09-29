@@ -5,7 +5,7 @@ import dash_bootstrap_components as dbc
 # create the app
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.VAPOR])
 
-# create framework of themain app
+# create framework of the main app
 app.layout = html.Div(
     [
         html.Div("US Presedential Speeches on Middle Eastern Conflict 2003-2021", style={'fontSize':40, 'textAlign':'center'}),
