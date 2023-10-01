@@ -2,8 +2,6 @@ import dash
 from dash import html, dcc
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output, State
-import seaborn as sns
-import matplotlib.pyplot as plt
 import pandas as pd
 
 # import datasets
@@ -15,7 +13,7 @@ app = dash.Dash(__name__, use_pages=True, external_stylesheets=[dbc.themes.VAPOR
 # create framework of the main app
 app.layout = html.Div(
     [
-        html.Div("US Presedential Speeches on Middle Eastern Conflict 2003-2021", style={'fontSize':40, 'textAlign':'center'}),
+        html.Div("U.S. Presedential Speeches on Middle Eastern Conflict 2003-2021", style={'fontSize':40, 'textAlign':'center'}),
         html.Div("Topic Modelling and Sentiment Analysis", style={'fontSize':30, 'textAlign':'center'}),
         html.Div([
             dcc.Link(page['name'] + " | ", href=page['path'])
