@@ -27,6 +27,12 @@ layout = html.Div([
             dbc.Row(dbc.Col(html.Div("Top 50 Topic Words Ordered by Topic Similarity Score", style={'textAlign':'center', 'font-size': 20, 'margin-left':'1.25em'}) ) ),
             dbc.Row(dbc.Col(html.Div(children=[], id='plot1') ) )
         ], style={'width': '40%', 'margin-left':'1.25em'}
+    ),
+    html.Div(
+        [
+            dbc.Row(dbc.Col(html.Div("Top 15 Topic Speech Sentences and Similarity Score", style={'textAlign':'center', 'font-size': 20, 'margin-left':'1.25em'})  ) ),
+            dbc.Row(dbc.Col(html.Div(children=[], id='topic_docs')))
+        ], style={'width': '40%', 'margin-left':'1.25em'}
     )
 
 ], style={'display': 'flex', 'flex-direction': 'row'}
@@ -37,7 +43,7 @@ layout = html.Div([
 Callback functions
 """
 
-""" Callback function to return Topic Name"""
+""" Callback function to return topic name and topic words"""
 @callback(
     Output('topic_name_selection', 'children'),
     Output('plot1', 'children'),
@@ -59,4 +65,13 @@ def get_words_bar_chart(topic):
     bar_fig.update_xaxes(color='white', tickfont=dict(size=14))
 
     return topic_name, dcc.Graph(figure=bar_fig)
+
+""" Callback function to return topic documents """
+@callback(
+    Output('topic_docs', 'children'),
+    Input(('topic_dropdown', 'value'))
+)
+def get_docs(topic):
+
+    
 
