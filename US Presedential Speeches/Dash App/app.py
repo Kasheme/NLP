@@ -4,8 +4,6 @@ import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output, State
 import pandas as pd
 
-# import datasets
-topic_word_df = pd.read_pickle(r"https://github.com/Kasheme/NLP/raw/develop/US%20Presedential%20Speeches/Dash%20App/datasets/topic_word_final_df.pkl")
 
 # create the app
 app = dash.Dash(__name__, use_pages=True, external_stylesheets=[dbc.themes.VAPOR])
