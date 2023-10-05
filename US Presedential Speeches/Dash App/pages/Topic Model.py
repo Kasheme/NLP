@@ -37,7 +37,7 @@ layout = html.Div([
         [
             #dbc.Container([
 
-                dbc.Row(dbc.Col(html.Div("Top 15 Topic Speech Sentences and Similarity Score", style={'textAlign':'center', 'font-size': 20, 'margin-left':'1.25em'})  ) ),
+                dbc.Row(dbc.Col(html.Div("Top 15 Topic Speech Sentences by Similarity Score", style={'textAlign':'center', 'font-size': 18, 'margin-left':'1.25em'})  ) ),
                 html.Hr(),
                 dbc.Row(dbc.Col(html.Div(children=[], id='doc_table') ) )
             #])
@@ -71,7 +71,7 @@ def get_words_bar_chart(topic):
     topic_name = df['topic name'].unique()[0]
     
     sns.set_color_codes("pastel")
-    bar_fig = px.bar(df, x='score', y='word', orientation='h', height=1000, width=600)
+    bar_fig = px.bar(df, x='score', y='word', orientation='h', height=1000, width=575, text='score')
     bar_fig.update_layout(  
                             yaxis_title="", xaxis_title="", 
                             paper_bgcolor='rgba(0,100,0,0)', plot_bgcolor='rgba(0,0,0,0)',
@@ -80,6 +80,7 @@ def get_words_bar_chart(topic):
                         )
     bar_fig.update_yaxes(color='white', tickfont=dict(size=14))
     bar_fig.update_xaxes(color='white', tickfont=dict(size=14))
+    bar_fig.update_traces(textfont_size=36, textangle=0, textposition="outside",textfont_color='white')
 
     return topic_name, dcc.Graph(figure=bar_fig)
 
