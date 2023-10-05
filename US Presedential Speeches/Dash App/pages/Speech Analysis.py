@@ -1,6 +1,6 @@
 import dash
 
-dash.register_page(__name__, path='/')
+#dash.register_page(__name__)
 
 from dash import html, dcc, callback, dash_table, Input, Output, State
 import dash_bootstrap_components as dbc
@@ -40,5 +40,11 @@ layout = html.Div([
 def get_heatmap(year):
 
     df = heatmap_pivot_df
- 
+    df = df[df['Year'] <= year].iloc[:,[0,1,2,3,4,5,6,7,8,9]]
 
+    heatmap_fig = sns.heatmap(df, annot=True)
+    plt.xticks(rotation=45, ha='right')
+    plt.xlabel('')
+    plt.ylabel('')
+
+    return dcc.Graph(heatmap_fig)
