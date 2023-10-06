@@ -1,6 +1,6 @@
 import dash
 
-dash.register_page(__name__, path='/')
+dash.register_page(__name__, path='/') 
 
 from dash import html, dcc, callback, dash_table, Input, Output, State
 import dash_bootstrap_components as dbc
@@ -30,7 +30,7 @@ layout = html.Div([
         [
             dbc.Row(dbc.Col(html.Div("Top 50 Topic Words Ordered by Topic Similarity Score", style={'textAlign':'center', 'font-size': 20, 'margin-left':'1.25em'}) ) ),
             html.Hr(),
-            dbc.Row(dbc.Col(html.Div(children=[], id='plot1') ) )
+            dbc.Row(dbc.Col(html.Div(children=[], id='bar_plot') ) )
         ], style={'width': '40%', 'margin-left':'1.25em', 'margin-right':'1.25em'}
     ),
     html.Div(
@@ -56,8 +56,10 @@ Callback functions
 """ Callback function to return topic name and topic words"""
 @callback(
     Output('topic_name_selection', 'children'),
-    Output('plot1', 'children'),
+    Output('bar_plot', 'children'),
     Input('topic_dropdown', 'value')
+    # ,allow_duplicate=True
+    #,prevent_initial_call=True
 )
 def get_words_bar_chart(topic):
 
