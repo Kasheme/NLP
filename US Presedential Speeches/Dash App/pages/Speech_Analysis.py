@@ -1,6 +1,6 @@
 import dash
 
-dash.register_page(__name__)
+dash.register_page(__name__, order=2)
 
 from dash import html, dcc, callback, dash_table, Input, Output, State
 import dash_bootstrap_components as dbc
@@ -63,6 +63,7 @@ def get_heatmap(year):
                         )
     heatmap_fig.update_yaxes(color='white', tickfont=dict(size=11))
     heatmap_fig.update_xaxes(color='white', tickfont=dict(size=11))
+
 
     return dcc.Graph(figure=heatmap_fig)
 
