@@ -22,6 +22,8 @@ about_project_text = dcc.Markdown(
 
     Therefore, I wanted to see if it was possible to prove or disprove this general sentiment by analysing as many speeches as possible
     relating to conflict in the Middle East using Natural Language Processing (NLP).
+
+    To view the full code for the analysis and the dash application, please visit my [Github](https://github.com/Kasheme/NLP/tree/main/US%20Presedential%20Speeches).
     """
 )
 

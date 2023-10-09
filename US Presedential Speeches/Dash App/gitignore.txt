@@ -1,4 +1,7 @@
 venv
 *.pyc
+.vscode/
 .DS_Store
 .env
+__pycache__
+notebooks
